@@ -1198,8 +1198,7 @@ void MyFrame::handleCommandLine()
 					}
 					else
 					{
-						std::cout << "Usage: xmlcopyeditor [--version --help -ws] [<file>] [<file2>]" << std::endl
-						    << "Options -w (import Microsoft Word document) and -s (open Spelling and style check) are provided for integration with Microsoft Office and only available on Windows" << std::endl;
+						std::cout << "Usage: xmlcopyeditor [--version --help] [<file>] [<file2>]" << std::endl;
 					}
 					exit ( 0 );
 				default:
