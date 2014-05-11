@@ -1,2 +1,3 @@
 lictext.patch
 help.patch
+src-Makefile.in.patch

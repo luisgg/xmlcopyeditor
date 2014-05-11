@@ -1,0 +1,14 @@
+--- xmlcopyeditor-1.2.1.1/src/Makefile.in	2014-05-04 16:18:47.000000000 +0200
++++ old/src/Makefile.in	2014-05-11 19:45:03.341736365 +0200
+@@ -348,9 +348,9 @@
+ 	      exit 1;; \
+ 	  esac; \
+ 	done; \
+-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --gnu src/Makefile'; \
++	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign src/Makefile'; \
+ 	$(am__cd) $(top_srcdir) && \
+-	  $(AUTOMAKE) --gnu src/Makefile
++	  $(AUTOMAKE) --foreign src/Makefile
+ .PRECIOUS: Makefile
+ Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
+ 	@case '$?' in \
