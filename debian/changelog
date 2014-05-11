@@ -1,0 +1,55 @@
+xmlcopyeditor (1.2.1.1-0.aurex1) precise; urgency=low
+
+  * New upstream release.
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Sun, 11 May 2014 12:57:03 +0200
+
+xmlcopyeditor (1.2.0.12-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Upgraded Standards-Version from 3.9.4 to 3.9.5
+  * Refreshed patches.
+
+ -- Miriam Ruiz <miriam@debian.org>  Wed, 29 Jan 2014 20:24:57 +0100
+
+xmlcopyeditor (1.2.0.9-2) unstable; urgency=low
+
+  * Upgraded Standards-Version from 3.9.3 to 3.9.4
+  * Make package buildable in gcc 2.8. Closes: #701371
+  * Added menu file. Closes: #705469
+
+ -- Miriam Ruiz <miriam@debian.org>  Tue, 02 Jul 2013 18:19:57 +0200
+
+xmlcopyeditor (1.2.0.9-1) unstable; urgency=low
+
+  * New upstream release.
+  * Refreshed patches.
+  * Changed my email address to miriam@debian.org
+
+ -- Miriam Ruiz <miriam@debian.org>  Wed, 20 Mar 2013 02:01:34 +0100
+
+xmlcopyeditor (1.2.0.8-1) unstable; urgency=low
+
+  * New upstream release. Closes: #651027
+  * Upgraded Standards-Version from 3.9.2 to 3.9.3
+  * Refreshed patches
+  * Added new patch to fix building errors: converting pointers to integers
+  * Needs debhelper (>= 9) to use dpkg-buildflags
+
+ -- Miriam Ruiz <little_miry@yahoo.es>  Sat, 06 Oct 2012 14:11:29 +0200
+
+xmlcopyeditor (1.2.0.6-2) unstable; urgency=low
+
+  * Upgraded Standards-Version from 3.8.3 to 3.9.2
+  * Upgraded source package to DebSrc 3
+  * debian/rules: Using --with-wx-config=/usr/bin/wx-config in ./configure
+  * debian/rules: Added targets build-indep and build-arch
+  * Added menu file and XMP icon
+
+ -- Miriam Ruiz <little_miry@yahoo.es>  Tue, 13 Dec 2011 03:23:38 +0100
+
+xmlcopyeditor (1.2.0.6-1) unstable; urgency=low
+
+  * Initial release. Closes: #435888
+
+ -- Miriam Ruiz <little_miry@yahoo.es>  Sun, 15 Nov 2009 06:01:41 +0100

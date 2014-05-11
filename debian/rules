@@ -1,0 +1,99 @@
+#!/usr/bin/make -f
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+# These are used for cross-compiling and for saving the configure script
+# from having to guess our platform (since we know it already)
+DEB_HOST_GNU_TYPE   ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
+DEB_BUILD_GNU_TYPE  ?= $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
+ifneq ($(DEB_HOST_GNU_TYPE),$(DEB_BUILD_GNU_TYPE))
+CROSS= --build $(DEB_BUILD_GNU_TYPE) --host $(DEB_HOST_GNU_TYPE)
+else
+CROSS= --build $(DEB_BUILD_GNU_TYPE)
+endif
+
+CPPFLAGS:=$(shell dpkg-buildflags --get CPPFLAGS)
+CFLAGS:=$(shell dpkg-buildflags --get CFLAGS)
+CXXFLAGS:=$(shell dpkg-buildflags --get CXXFLAGS)
+LDFLAGS:=$(shell dpkg-buildflags --get LDFLAGS)
+
+config: config-stamp
+config-stamp: 
+	dh_testdir
+	[ ! -d debian/patches ] || $(MAKE) -f /usr/share/quilt/quilt.make patch
+ifneq "$(wildcard /usr/share/misc/config.sub)" ""
+	cp -f /usr/share/misc/config.sub config.sub
+endif
+ifneq "$(wildcard /usr/share/misc/config.guess)" ""
+	cp -f /usr/share/misc/config.guess config.guess
+endif
+	./configure $(CROSS) \
+		--prefix=/usr \
+		--datarootdir=\$${prefix}/share \
+		--mandir=\$${prefix}/share/man \
+		--infodir=\$${prefix}/share/info \
+		--with-wx-config=/usr/bin/wx-config \
+		CFLAGS="$(CFLAGS) $(CPPFLAGS)" \
+		CXXFLAGS="$(CXXFLAGS) $(CPPFLAGS)" \
+		LDFLAGS="$(LDFLAGS) -Wl,-z,defs -Wl,--as-needed -Wl,--no-undefined"
+	touch $@
+
+build: build-stamp
+build-stamp: config
+	dh_testdir
+	$(MAKE)
+	touch $@
+
+build-indep:
+
+build-arch: build
+
+clean: config
+	dh_testdir
+	dh_testroot
+	rm -f build-stamp config-stamp
+	[ ! -f Makefile ] || $(MAKE) distclean
+	rm -f config.sub config.guess config.cache config.log
+	[ ! -d debian/patches ] || $(MAKE) -f /usr/share/quilt/quilt.make unpatch
+	dh_clean 
+
+install: build
+	dh_testdir
+	dh_testroot
+	dh_prep
+	dh_installdirs
+	$(MAKE) DESTDIR=$(CURDIR)/debian/xmlcopyeditor install
+
+# Build architecture-independent files here.
+binary-indep: install
+
+# Build architecture-dependent files here.
+binary-arch: install
+	dh_testdir
+	dh_testroot
+	dh_installchangelogs
+	dh_installdocs
+	dh_installexamples
+	dh_install
+	chmod 664 $(CURDIR)/debian/xmlcopyeditor/usr/share/xmlcopyeditor/*/*.*
+	chmod 664 $(CURDIR)/debian/xmlcopyeditor/usr/share/xmlcopyeditor/*/*/*.*
+	chmod 755 `find $(CURDIR)/debian/xmlcopyeditor/usr/share/xmlcopyeditor/dtd/docbook/ -type d`
+	rm -rf $(CURDIR)/debian/xmlcopyeditor/usr/share/xmlcopyeditor/copying
+	sed -i 's/\r//g' $(CURDIR)/debian/xmlcopyeditor/usr/share/applications/xmlcopyeditor.desktop
+	dh_installmenu
+	dh_installman debian/xmlcopyeditor.1
+	dh_link
+	dh_strip --dbg-package=xmlcopyeditor-dbg
+	dh_compress
+	dh_fixperms
+#	dh_makeshlibs
+	[ ! -e /usr/bin/dh_buildinfo ] || dh_buildinfo
+	dh_installdeb
+	dh_shlibdeps
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary: binary-indep binary-arch
+.PHONY: config build build-indep build-arch clean binary-indep binary-arch binary install 

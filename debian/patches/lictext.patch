@@ -1,0 +1,29 @@
+Index: xmlcopyeditor-1.2.0.12/src/xmlcopyeditorcopy.h
+===================================================================
+--- xmlcopyeditor-1.2.0.12.orig/src/xmlcopyeditorcopy.h	2014-01-29 20:31:03.818888388 +0100
++++ xmlcopyeditor-1.2.0.12/src/xmlcopyeditorcopy.h	2014-01-29 20:31:03.818888388 +0100
+@@ -44,8 +44,7 @@
+ "This program is free software; you can redistribute it\n"\
+ "and/or modify it under the terms of the GNU General Public\n"\
+ "License as published by the Free Software Foundation;\n"\
+-"either version 2 of the License, or (at your option) any\n"\
+-"later version.\n\n"\
++"version 2 of the License.\n\n"\
+ "This program is distributed in the hope that it will be\n"\
+ "useful, but WITHOUT ANY WARRANTY; without even the implied\n"\
+ "warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR\n"\
+Index: xmlcopyeditor-1.2.0.12/src/copying/xmlcopyeditor/copying.txt
+===================================================================
+--- xmlcopyeditor-1.2.0.12.orig/src/copying/xmlcopyeditor/copying.txt	2014-01-29 20:31:03.818888388 +0100
++++ xmlcopyeditor-1.2.0.12/src/copying/xmlcopyeditor/copying.txt	2014-01-29 20:31:03.818888388 +0100
+@@ -1,8 +1,8 @@
+ XML Copy Editor
+ 
+-Copyright (c) 2005-2007 Gerald Schmidt
++Copyright (c) 2005-2009 Gerald Schmidt
+ 
+-This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
++This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; version 2 of the License.
+ 
+ This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ 

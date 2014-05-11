@@ -1,0 +1,32 @@
+Source: xmlcopyeditor
+Section: devel
+Priority: optional
+Maintainer: Miriam Ruiz <miriam@debian.org>
+Build-Depends: debhelper (>= 9), dh-buildinfo, autotools-dev, quilt,
+ libxml2-dev, libwxgtk2.8-dev, libaspell-dev, libxslt1-dev, libpcre3-dev,
+ libboost-dev, libxerces-c-dev, libexpat1-dev
+Standards-Version: 3.9.5
+Homepage: http://xml-copy-editor.sourceforge.net/
+
+Package: xmlcopyeditor
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Suggests: xmlcopyeditor-dbg (= ${binary:Version})
+Description: fast, free, validating XML editor
+ XML Copy Editor is an XML editor focusing on editing document markup
+ languages like DITA, DocBook, WordprocessingML. It features DTD/XML
+ Schema/RELAX NG validation, XSLT, XPath, pretty-printing, syntax
+ highlighting, folding, tag completion/locking, and a spelling/style check.
+
+Package: xmlcopyeditor-dbg
+Section: debug
+Priority: extra
+Architecture: any
+Depends: xmlcopyeditor (= ${binary:Version}), ${misc:Depends}
+Description: fast, free, validating XML editor - debug
+ XML Copy Editor is an XML editor focusing on editing document markup
+ languages like DITA, DocBook, WordprocessingML. It features DTD/XML
+ Schema/RELAX NG validation, XSLT, XPath, pretty-printing, syntax
+ highlighting, folding, tag completion/locking, and a spelling/style check.
+ .
+ This package contains the debugging symbols.

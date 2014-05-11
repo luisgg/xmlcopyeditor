@@ -1,0 +1,8 @@
+src/help usr/share/xmlcopyeditor/
+src/png usr/share/xmlcopyeditor/
+src/rng usr/share/xmlcopyeditor/
+src/xpm usr/share/xmlcopyeditor/
+src/templates/ usr/share/xmlcopyeditor/
+src/rulesets/ usr/share/xmlcopyeditor/
+src/po/ usr/share/xmlcopyeditor/
+debian/*.xpm usr/share/pixmaps/
