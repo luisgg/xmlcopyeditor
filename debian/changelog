@@ -1,8 +1,8 @@
-xmlcopyeditor (1.2.1.1-0.aurex2) precise; urgency=low
+xmlcopyeditor (1.2.1.1-0.aurex3) precise; urgency=low
 
   * Dummy upgrade for repository build purposes
 
- -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Sun, 11 May 2014 20:57:21 +0200
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Sun, 11 May 2014 21:15:50 +0200
 
 xmlcopyeditor (1.2.1.1-0.aurex1) precise; urgency=low
 
