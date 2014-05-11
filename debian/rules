@@ -21,7 +21,7 @@ LDFLAGS:=$(shell dpkg-buildflags --get LDFLAGS)
 config: config-stamp
 config-stamp: 
 	dh_testdir
-	[ ! -d debian/patches ] || $(MAKE) -f /usr/share/quilt/quilt.make patch
+#	[ ! -d debian/patches ] || $(MAKE) -f /usr/share/quilt/quilt.make patch
 ifneq "$(wildcard /usr/share/misc/config.sub)" ""
 	cp -f /usr/share/misc/config.sub config.sub
 endif
@@ -55,7 +55,7 @@ clean: config
 	rm -f build-stamp config-stamp
 	[ ! -f Makefile ] || $(MAKE) distclean
 	rm -f config.sub config.guess config.cache config.log
-	[ ! -d debian/patches ] || $(MAKE) -f /usr/share/quilt/quilt.make unpatch
+#	[ ! -d debian/patches ] || $(MAKE) -f /usr/share/quilt/quilt.make unpatch
 	dh_clean 
 
 install: build
